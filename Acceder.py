@@ -1,53 +1,94 @@
 import time
+user = ""
+password = ""
 
-print("Vas a crearte una cuenta para que puedas acceder a tu cuenta de manera más fácil")
+print("Necesitas tener una cuenta para ingresar")
 print(" ")
+print("Si no tiene una cuenta registrese")
+print("")
 
 while True:
-    user = input("Crea tu username = ")
-    print(" ")
+    print("Presione 1 si desea registrarse")
+    print("Presione 2 si desea iniciar sesión")
 
-    if len(user) >= 5:
-        break
-    else:
-        print("El username debe tener 5 o más dígitos, intente de nuevo")
-        print(" ")
+    opcion_general = input("Cual es la opción deseada: ")
 
-while True:
-    password = input("Crea una contraseña = ")
-    print(" ")
+    if opcion_general == "1":
+        print("Accediendo al sistema...")
+        time.sleep(3)
+        print()
+        print("Vamos a proceder con la creación de su cuenta")
+        print()
 
-    if len(password) >= 5:
-        break
-    else:
-        print("La contraseña debe tener 5 o más dígitos, intente de nuevo")
-        print(" ")
+        while True:
+            user = input("Cree su nombre de usuario: ")
+            if len(user) >= 5:
+                print()
+                print("Creando usuario...")
+                print()
+                time.sleep(3)
+                print("¡Usuario creado sin problemas!")
+                break
+            else:
+                print("El usuario debe contener 5 o más caracteres")
 
-while True:
-    acceder = input("¿Deseas acceder ya? = ").lower()
+        while True:
+            password = input("Cree su contraseña: ")
+            if len(password) >= 8:
+                print()
+                print("Creando contraseña...")
+                print()
+                time.sleep(3)
+                print("Contraseña creada sin problemas")
+                break
+            else:
+                print("La contraseña debe contener 8 o más caracteres")
 
-    if acceder == "si":
+        while True:
+            inicio = input("¿Desea regresar?: ").lower()
+            if inicio == "si":
+                print("Accediendo...")
+                time.sleep(3)
+                break
+            elif inicio == "no":
+                print("Acceso denegado")
+                break
+            else:
+                print("Solo coloque si o no")
+    elif opcion_general == "2":
+        if user == "" or password == "":
+            print("Primero debe registrarse y crear usuario y contraseña")
+            print()
+            continue
+
         print("Accediendo...")
         time.sleep(3)
-        print("¡Bienvenido!")
-        break
-    elif acceder == "no":
-        print("Acceso denegado, intenta otra vez")
+        print("Vamos a proceder con el inicio de sesión")
+        print()
+
+        intentos = 3
+
+        while intentos > 0:
+            acceder_usuario = input("Ingrese su usuario = ")
+            acceder_contraseña = input("Ingrese su contraseña = ")
+
+            if acceder_usuario == user and acceder_contraseña == password:
+                print("Inicio de sesión correcto ✅")
+                break
+            else:
+                intentos -= 1
+
+                if intentos > 0:
+                    if intentos == 1:
+                        print("Incorrecto. Te queda", intentos, "intento")
+                    else:
+                        print("Incorrecto. Te quedan", intentos, "intentos")
+                else:
+                    print("Cuenta bloqueada 💀")
+                    break
+
     else:
-        print("Solo se permite escribir 'si' o 'no'")
+        print("Opción no válida")
+        print()
 
-while True:
-    print("")
-    acceder_usuario = input("Ingrese su usuario = ")
-    print("")
-    acceder_contraseña = input("Ingrese su contraseña = ")
-
-    while acceder_contraseña == "":
-        print("Por favor ingrese algo")
-        acceder_contraseña = input("Ingrese su contraseña = ")
-
-    if acceder_usuario == user and acceder_contraseña == password:
-        print("Inicio de sesión correcto")
-        break
-    else:
-        print("Usuario o contraseña incorrectos, intente otra vez")
+        
