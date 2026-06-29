@@ -6,7 +6,3 @@ Funciones:
 ✔ Crear usuario
 ✔ Crear contraseña
 ✔ Intentos limitados
-
-Cómo usarlo:
-
-python login.py
