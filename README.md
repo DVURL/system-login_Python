@@ -10,13 +10,4 @@ Sus funciones es:
 
 Requisitos para poder ejecutarlo
 
-python 3
-
-Cómo ejecutar el código:
-En la terminal coloca
-
-python login_system.py
-
-(En caso de que no funcione)
-
-python3 login_system.py
+python 3.10 o superior
